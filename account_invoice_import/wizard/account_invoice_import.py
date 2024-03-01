@@ -1122,10 +1122,10 @@ class AccountInvoiceImport(models.TransientModel):
                         copy_dict["product_id"] = False
                     # Add the adjustment line
                     iline.with_context(check_move_validity=False).copy(copy_dict)
-                    invoice.with_context(
-                        check_move_validity=False
-                    )._recompute_dynamic_lines(recompute_all_taxes=True)
-                    invoice._check_balanced()
+                    #invoice.with_context(
+                    #    check_move_validity=False
+                    #)._recompute_dynamic_lines(recompute_all_taxes=True)
+                    #invoice._check_balanced()
                     logger.info("Adjustment invoice line created")
         # Fallback: create global adjustment line
         if float_compare(
@@ -1151,10 +1151,10 @@ class AccountInvoiceImport(models.TransientModel):
                 .with_context(check_move_validity=False)
                 .create(il_vals)
             )
-            invoice.with_context(check_move_validity=False)._recompute_dynamic_lines(
-                recompute_all_taxes=True
-            )
-            invoice._check_balanced()
+            #invoice.with_context(check_move_validity=False)._recompute_dynamic_lines(
+            #    recompute_all_taxes=True
+            #)
+            #invoice._check_balanced()
             logger.info("Global adjustment invoice line created ID %d", mline.id)
         assert not float_compare(
             parsed_inv["amount_untaxed"],
@@ -1213,10 +1213,10 @@ class AccountInvoiceImport(models.TransientModel):
                         vals["credit"] = new_balance * -1
                     logger.info("Force VAT amount with diff=%s", diff_tax_amount)
                     mline.with_context(check_move_validity=False).write(vals)
-                    invoice.with_context(
-                        check_move_validity=False
-                    )._recompute_dynamic_lines()
-                    invoice._check_balanced()
+                    #invoice.with_context(
+                    #    check_move_validity=False
+                    #)._recompute_dynamic_lines()
+                    #invoice._check_balanced()
                     break
             if not has_tax_line:
                 raise UserError(
