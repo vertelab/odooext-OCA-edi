@@ -214,8 +214,8 @@ class AccountInvoiceImport(models.TransientModel):
                 res = self._simple_pdf_text_extraction_pdftotext_lib(fileobj, test_info)
             if not res:
                 res = self._simple_pdf_text_extraction_pdftotext_cmd(fileobj, test_info)
-            if not res:
-                res = self._simple_pdf_text_extraction_pdfplumber(fileobj, test_info)
+            #if not res:
+            #    res = self._simple_pdf_text_extraction_pdfplumber(fileobj, test_info)
             if not res:
                 res = self._simple_pdf_text_extraction_pypdf(fileobj, test_info)
             if not res:
