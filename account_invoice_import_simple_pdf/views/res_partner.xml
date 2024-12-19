@@ -109,14 +109,11 @@
 
                     </div>
 
-                    <group name="pdf_simple_test_results" string="Test Results">
+<!--                    <group name="pdf_simple_test_results" string="Test Results">-->
                         <field nolabel="1" name="simple_pdf_test_results" />
-                    </group>
+<!--                    </group>-->
 
-                    <group
-                            name="pdf_simple_test_raw_text"
-                            string="Text Extraction from PDF"
-                    >
+                    <group name="pdf_simple_test_raw_text" string="Text Extraction from PDF" col="1">
                         <field nolabel="1" name="simple_pdf_test_raw_text" />
                     </group>
 

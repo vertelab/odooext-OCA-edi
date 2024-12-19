@@ -376,8 +376,15 @@ class AccountInvoiceImportSimplePdfFields(models.Model):
                 amount_raw = regex.sub(thousand_sep_pattern, "", amount_raw)
             if decimal_places:
                 amount_raw_list = list(amount_raw)
-                amount_raw_list[-decimal_places - 1] = "."
-                amount_raw = "".join(amount_raw_list)
+                print("amount_raw_list", amount_raw_list)
+                print("decimal_places", decimal_places)
+                #
+                try:
+                    print("amount_raw_list", amount_raw_list[-decimal_places])
+                    amount_raw_list[-decimal_places - 1] = "."
+                    amount_raw = "".join(amount_raw_list)
+                except IndexError as e:
+                    print(f"Index Error: {e}")
             try:
                 valid_amounts.append(float(amount_raw))
             except ValueError:
