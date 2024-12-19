@@ -113,12 +113,9 @@
                         <field nolabel="1" name="simple_pdf_test_results" />
 <!--                    </group>-->
 
-                    <group name="pdf_simple_test_raw_text" string="Text Extraction from PDF" col="1">
-                        <field nolabel="1" name="simple_pdf_test_raw_text" />
-                    </group>
+                    <group name="pdf_simple_test_raw_text" string="Text Extraction from PDF"/>
+                    <field nolabel="1" name="simple_pdf_test_raw_text" />
 
-<!--                    <group name="pdf_simple_test" string="Test">-->
-<!--                    </group>-->
                 </page>
             </page>
         </field>
